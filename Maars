@@ -1,0 +1,326 @@
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+public class Maars implements ActionListener {
+	
+	JFrame orginpage;
+	JLabel orglab;
+	ImageIcon backer;
+	ImageIcon minicon;
+	ImageIcon closable;
+	ImageIcon khali;
+	ImageIcon comput;
+	ImageIcon  acelarimg;
+	ImageIcon rockthustimg;
+	ImageIcon specimpuimg;
+	ImageIcon hassan;
+	
+	
+	//COMputing textfiels
+	JTextField accelerationtxt;
+	JTextField thursttxt;
+	JTextField  massonetxt;
+	JTextField  weighttxt;
+	
+	JTextField specfictxt;
+	JTextField  powertxt;
+	JTextField  massstxt;
+	JTextField  g0weighttxt;
+	
+	
+	JTextField thurstequtxt;
+	JTextField  massflotxt;
+	JTextField  veetxt;
+	JTextField   peetxt;
+	JTextField   pzerotxt;
+	JTextField   aeetxt;
+	
+	//menus
+	JMenuBar aslibar;
+	JMenu     formulas;
+	JMenu about;
+	JMenuItem spcimpitem;
+	JMenuItem rocketthurst;
+	JMenuItem liftoffitem;
+	JMenuItem aboutitem;
+	
+	//Buttons
+	JButton accelerationbut;
+	JButton 	specficbut;
+	JButton thurstequtbut;
+	JButton bastan;
+	
+	//mathhhh
+	double accelerationee;
+	double thurst;
+	double mass;
+	double weight;
+	
+
+	
+	double specfic;
+	double power;
+	double  masss;
+	double  g0weight;
+	
+	double  thurstequ;
+	double  massflo;
+	double  vee;
+	double  pee;
+	double  pzero;
+	double  aee;
+	
+	public Maars()  {
+		
+		
+		
+		//MenuBars
+		aslibar=new JMenuBar();
+		aslibar.setBounds(0,0,2222,50);
+		aslibar.setBackground(Color.BLACK);
+		
+		formulas=new JMenu("Formulas");
+		formulas.setForeground(Color.white);
+		
+		about=new JMenu("About");
+		about.setForeground(Color.white);
+		
+		spcimpitem=new JMenuItem("Specfic Impulse");
+		aslibar.add(formulas);
+		aslibar.add(about);
+		formulas.add(spcimpitem);
+		spcimpitem.addActionListener(this);
+
+		rocketthurst=new JMenuItem("Rocket Thurst equation");
+		formulas.add(rocketthurst);
+		rocketthurst.addActionListener(this);
+		
+	
+		liftoffitem=new JMenuItem("Acceleration At Liftoff");
+		formulas.add(liftoffitem);
+		liftoffitem.addActionListener(this);
+		
+		aboutitem=new JMenuItem("About Mars");
+		about.add(aboutitem);
+		aboutitem.addActionListener(this);
+		
+		
+		//TEXTFIELDS
+			
+			 thursttxt=new JTextField();
+			 thursttxt.setBorder(null);
+			 thursttxt.setBounds(333, 233, 150, 30);
+			 massonetxt=new JTextField();
+			 massonetxt .setBorder(null);
+			 massonetxt.setBounds(333, 277, 150, 30);
+			 weighttxt=new JTextField();
+			 weighttxt.setBorder(null);
+			 weighttxt.setBounds(333, 321, 150, 30);
+			 accelerationtxt=new JTextField();
+			 accelerationtxt.setBorder(null);
+			 accelerationtxt.setBounds(333, 365, 150, 30);
+			
+			
+			
+			 
+			 powertxt=new JTextField();
+			 powertxt.setBorder(null);
+			 powertxt.setBounds(850, 233, 150, 30);
+			 massstxt=new JTextField();
+			 massstxt.setBorder(null);
+			 massstxt.setBounds(850, 277, 150, 30);
+			 g0weighttxt=new JTextField();
+			 g0weighttxt.setBorder(null);
+			 g0weighttxt.setBounds(850, 321, 150, 30);
+			 specfictxt=new JTextField();
+			 specfictxt.setBorder(null);
+			 specfictxt .setBounds(850, 365, 150, 30);
+			 specfictxt.disable();
+			
+			
+			massflotxt=new JTextField();
+			massflotxt.setBorder(null);
+			massflotxt.setBounds(600, 500, 150, 30);
+			veetxt=new JTextField();
+			veetxt.setBounds(600, 544, 150, 30);
+			veetxt.setBorder(null);
+			peetxt=new JTextField();
+			peetxt.setBorder(null);
+			peetxt.setBounds(600, 588, 150, 30);
+			pzerotxt=new JTextField();
+			pzerotxt.setBorder(null);
+			pzerotxt.setBounds(600, 632, 150, 30);
+			aeetxt=new JTextField();
+			aeetxt.setBorder(null);
+			aeetxt.setBounds(600, 676, 150, 30);
+			thurstequtxt=new JTextField();
+			thurstequtxt.setBorder(null);
+			thurstequtxt.setBounds(600, 720, 150, 30);
+			thurstequtxt.disable();
+			
+			
+		
+			 
+			
+			
+		backer=new ImageIcon("mainpage.png");
+		minicon=new ImageIcon("samo.png");
+		closable=new ImageIcon("close.png");
+		khali=new ImageIcon("");
+		comput=new ImageIcon("rocker.png");
+		acelarimg=new ImageIcon("rktalo.png");
+		rockthustimg=new ImageIcon("rockthurst.png");
+		specimpuimg=new ImageIcon("specimpu.png");
+		hassan=new ImageIcon("hassannajafi.png");
+		
+		bastan=new JButton();
+		bastan.setIcon(closable);
+		bastan.setBounds(1375, -10, 66, 66);
+		bastan.setBorderPainted(false);
+		bastan.setContentAreaFilled(false);
+		bastan.setPressedIcon(khali);
+		bastan.addActionListener(this);
+		
+		accelerationbut=new JButton();
+		accelerationbut.setIcon(comput);
+		accelerationbut.setBounds(360, 400, 100, 100);
+		accelerationbut.setContentAreaFilled(false);
+		accelerationbut.setBorderPainted(false);
+		accelerationbut.setPressedIcon(khali);
+		accelerationbut.addActionListener(this);
+		
+	
+		specficbut=new JButton();
+		specficbut.setIcon(comput);
+		specficbut.setBorderPainted(false);
+		specficbut.setContentAreaFilled(false);
+		specficbut.setPressedIcon(khali);
+		specficbut.setBounds(870, 400,100, 100);
+		specficbut.addActionListener(this);
+		
+		thurstequtbut=new JButton();
+		thurstequtbut.setIcon(comput);
+		thurstequtbut.setBorderPainted(false);
+		thurstequtbut.setContentAreaFilled(false);
+		thurstequtbut.setPressedIcon(khali);
+		thurstequtbut.setBounds(620, 750, 100, 100);
+		thurstequtbut.addActionListener(this);
+		
+	
+		
+		orglab=new JLabel();
+		orglab.setBounds(0, 0, 1440, 968);
+		orglab.setIcon(backer);
+		orglab.add(bastan);
+		
+		
+		orglab.add(massonetxt);
+		orglab.add(weighttxt);
+		orglab.add(thursttxt);
+		
+		orglab.add(powertxt);
+		orglab.add(massstxt);
+		orglab.add(g0weighttxt);
+		
+		
+		orglab.add(massflotxt);
+		orglab.add(veetxt);
+		orglab.add(peetxt);
+		orglab.add(pzerotxt);
+		orglab.add(aeetxt);
+		
+		
+		
+		orglab.add(accelerationbut);
+		orglab.add(specficbut);		
+		orglab.add(thurstequtbut);
+		
+		
+	
+		
+		orginpage=new JFrame();
+		orginpage.setUndecorated(true);
+		orginpage.add(orglab);
+		orginpage.setIconImage(minicon.getImage());
+		orginpage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		orginpage.setVisible(true);
+		orginpage.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		orglab.add(aslibar);
+		
+		       
+	      
+				 
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==bastan) {
+			orginpage.dispose();
+		}
+		
+		if (e.getSource()==accelerationbut ) {
+			
+			thurst =Double.parseDouble(thursttxt.getText());
+			  mass=Double.parseDouble(massonetxt.getText());
+			 weight=Double.parseDouble(weighttxt.getText());
+				accelerationee=Math.abs(thurst-weight/mass);
+			
+				JOptionPane.showMessageDialog(null, "Acceleration At Liftoff  Is= \n"+accelerationee,"Acceleration At Liftoff",JOptionPane.INFORMATION_MESSAGE);
+	}
+		if(e.getSource()==specficbut) {
+			
+			g0weight= Double.parseDouble(g0weighttxt.getText());
+			masss=Double.parseDouble(massstxt.getText());
+			power=Double.parseDouble(powertxt.getText());
+			
+			 specfic= Math.abs(power/masss*g0weight);
+				JOptionPane.showMessageDialog(null, "Specfic Impulse = \n"+specfic,"Specfic Impulse",JOptionPane.INFORMATION_MESSAGE);
+		}
+		
+		if(e.getSource()==thurstequtbut) {
+			
+			 massflo=Double.parseDouble(massflotxt.getText());
+			 vee=Double.parseDouble(veetxt.getText());
+			 pee=Double.parseDouble(peetxt.getText());
+			 pzero=Double.parseDouble(pzerotxt.getText());
+			 aee=Double.parseDouble(aeetxt.getText());
+			 thurstequ= Math.abs(massflo*vee+(pee-pzero)*aee);
+			JOptionPane.showMessageDialog(null, "Rocket Thurst equation = \n"+thurstequ,"Rocket Thurst equation",JOptionPane.INFORMATION_MESSAGE);
+		}
+		if(e.getSource()==aboutitem) {
+			JOptionPane.showOptionDialog(null, "", "About Mars", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, hassan, null, 0);
+		}
+		
+		if(e.getSource()==liftoffitem) {
+			
+			JOptionPane.showOptionDialog(null, "","Acceleration At Liftoff Formula", JOptionPane.PLAIN_MESSAGE, JOptionPane.INFORMATION_MESSAGE, acelarimg, null, 0);	
+		}
+		if(e.getSource()==rocketthurst) {
+			
+			JOptionPane.showOptionDialog(null, "", "Rocket Thurst equation Formula", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, rockthustimg, null, 0);
+		}
+		
+		if(e.getSource()==spcimpitem) {
+			
+			JOptionPane.showOptionDialog(null, "","Specfic Impulse Formula", JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, specimpuimg, null, 0);
+		}
+	}
+	
+	
+}
+
+
+
