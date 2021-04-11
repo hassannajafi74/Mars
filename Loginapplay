@@ -1,0 +1,247 @@
+import java.awt.Color;
+import java.awt.Dialog.ModalityType;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+public class Loginapplay implements ActionListener  {
+
+	JFrame original;
+	JButton loginkey;
+	JButton creatacc;
+	JButton gohomasli;
+	JButton saverus;
+	JButton exit;
+	ImageIcon icologin;
+	ImageIcon icocreateacc;
+	ImageIcon icoexit;
+	ImageIcon backgrowlogin;
+	ImageIcon maainico;
+	ImageIcon setare;
+	ImageIcon gohome;
+    ImageIcon savekey;
+    ImageIcon logimgkey;
+    ImageIcon accreccc;
+    
+	JLabel loginas;
+	JLabel ccaco;
+	JTextField username;
+	JPasswordField passwordlog;
+	
+	JTextField enteruser;
+	JTextField enterpass;
+	JTextField enterword;
+	
+	
+	JFrame accframe;
+	Serialize userpass;
+	
+   public Loginapplay() throws IOException {
+	
+
+
+	//ALL IMAGES IMAGES
+	icologin=new ImageIcon("loginkey.png");
+	icocreateacc=new ImageIcon("createkey.png");
+	icoexit=new ImageIcon("close.png");
+	backgrowlogin=new ImageIcon("mati897.png");
+	maainico=new ImageIcon("samo.png");
+	gohome=new ImageIcon("gohome.png");
+	savekey=new ImageIcon("savee.png");
+	setare=new ImageIcon("");
+	logimgkey=new ImageIcon("logins.png");
+	accreccc=new ImageIcon("acccreated.png");
+	
+	//ALLLL FIELDSSSS IS HEREEEE
+	username=new JTextField();
+	username.setBounds(350, 150, 150, 33);
+	username.setBackground(Color.black);
+	username.setFont(new Font("Chica mono",Font.BOLD,13));
+	username.setCaretColor(Color.white);
+	username.setForeground(new Color(252, 243, 207));
+	passwordlog=new JPasswordField();
+	passwordlog.setBounds(350, 200, 150, 33);
+	passwordlog.setBackground(Color.black);
+	passwordlog.setForeground(new Color(252, 243, 207));	
+	
+	
+	enteruser=new JTextField();
+	enteruser.setBounds(350, 150, 150, 33);
+	enteruser.setBackground(Color.black);
+	enteruser.setFont(new Font("Chica mono",Font.BOLD,13));
+	enteruser.setCaretColor(Color.white);
+	enteruser.setForeground(new Color(252, 243, 207));
+	
+	
+	enterpass=new JTextField();
+	enterpass.setBounds(350, 200, 150, 33);
+	enterpass.setBackground(Color.black);
+	enterpass.setFont(new Font("Chica mono",Font.BOLD,13));
+	enterpass.setCaretColor(Color.white);
+	enterpass.setForeground(new Color(252, 243, 207));
+	
+	
+	
+	enterword=new JTextField();
+	enterword.setBounds(350, 250, 150, 33);
+	enterword.setBackground(Color.black);
+	enterword.setFont(new Font("Chica mono",Font.BOLD,13));
+	enterword.setCaretColor(Color.white);
+	enterword.setForeground(new Color(252, 243, 207));
+	
+	
+	
+	
+	//ALL BUTTONS IS HEREEEE
+	loginkey=new JButton();
+	loginkey.setIcon(icologin);
+	loginkey.setBounds(510, 155, 66, 66);
+	loginkey.setBorderPainted(false);
+	loginkey.setContentAreaFilled(false);
+	loginkey.setPressedIcon(setare);
+	loginkey.addActionListener(this);
+	
+	creatacc=new JButton();
+	creatacc.setIcon(icocreateacc);
+	creatacc.setBounds(30, 40, 66, 66);
+	creatacc.setBorderPainted(false);
+	creatacc.setContentAreaFilled(false);
+	creatacc.setPressedIcon(setare);
+	creatacc.addActionListener(this);
+
+	gohomasli=new JButton();
+	gohomasli.setIcon(gohome);
+	gohomasli.setBounds(30, 10, 66, 66);
+	gohomasli.setBorderPainted(false);
+	gohomasli.setContentAreaFilled(false);
+	gohomasli.setPressedIcon(setare);
+	gohomasli.addActionListener(this);
+	
+	saverus=new JButton();
+	saverus.setIcon(savekey);
+	saverus.setBounds(394, 300, 66, 66);
+	saverus.setBorderPainted(false);
+	saverus.setContentAreaFilled(false);
+	saverus.setPressedIcon(setare);
+	saverus.addActionListener(this);
+	
+	
+	exit=new JButton();
+	exit.setIcon(icoexit);
+	exit.setBounds(830, 0, 66, 66);
+	exit.setBorderPainted(false);
+	exit.setContentAreaFilled(false);
+	exit.setPressedIcon(setare);
+    exit.addActionListener(this);
+    
+	
+
+	//ALLLL LABELS IS HEREEEE
+	 loginas=new JLabel();
+	 loginas.setBounds(444,222, 900, 507);
+	 loginas.setIcon(backgrowlogin);
+	 loginas.add(loginkey);
+	 loginas.add(exit);
+	 loginas.add(username);
+	 loginas.add(passwordlog);
+	 
+	 ccaco=new JLabel();
+	 ccaco.setBounds(444,222, 900, 507);
+	 ccaco.setIcon(backgrowlogin);
+	 ccaco.add(gohomasli);
+	 ccaco.add(enteruser);
+	 ccaco.add(enterpass);
+	 ccaco.add(enterword);
+	 ccaco.add(saverus);
+	 
+	
+	//FRAMESS
+	 original =new JFrame("Login now to MARS");
+	 original.setUndecorated(true);
+	 original.setIconImage(maainico.getImage());
+	 original.setVisible(true);
+	 original.setBounds(444,222, 900, 507);
+	 original.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+	 original.setResizable(false);
+	 original.setLocationRelativeTo(null);
+	 original.add(loginas);
+	
+	 
+	
+	userpass=new Serialize();
+		
+		
+		
+		FileOutputStream fileout=new FileOutputStream("savena.ser");
+		ObjectOutputStream out=new ObjectOutputStream(fileout);
+		out.writeObject(userpass);
+		out.close();
+		fileout.close();
+	   
+	
+	
+		
+
+	  
+	 
+	 
+ }
+
+
+   @Override
+   public void actionPerformed(ActionEvent e) {
+	if(e.getSource()==exit) {
+	
+		original.dispose();
+	}
+	
+		 
+	if(e.getSource()==gohomasli) {
+		accframe.hide();
+		original.show();
+		
+		
+		
+	}
+	
+	if(e.getSource()==saverus ) 
+	{
+		
+		userpass.userchoice=enteruser.getText();
+		userpass.passchoice=enterpass.getText();
+		userpass.setword=enterword.getText();
+		System.out.println(userpass.userchoice);
+		System.out.println(userpass.passchoice);
+		System.out.println(userpass.setword);
+		JOptionPane.showOptionDialog(null, "", "Account created!",JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, accreccc, null, 0);
+		
+	} 
+	if(e.getSource()==loginkey && username.getText().equals("hassan") && passwordlog.getText().equals("najafi") ){
+	
+		original.dispose();
+		
+		JOptionPane.showOptionDialog(null, "", "Congratulations!",JOptionPane.PLAIN_MESSAGE, JOptionPane.PLAIN_MESSAGE, logimgkey, null, 0);
+		 new Maars();
+		
+		}
+		}
+}
+   
+   
+   
+   
